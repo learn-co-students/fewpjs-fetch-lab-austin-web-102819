@@ -1,6 +1,16 @@
 function fetchBooks() {
+  /* Make the request to the remote API*/
+ return fetch("https://anapioficeandfire.com/api/books")
+  // Get the request back and then request that the response be in JSON 
+  .then(function(response){
+    return response.json();
+    // Perform the work we want to do on the data (aka render the books)
+  }).then(function(json){
+    console.log(json);
+    renderBooks(json)
+  })
 
-}
+};
 
 function renderBooks(json) {
   const main = document.querySelector('main')
